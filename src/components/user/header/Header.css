@@ -1,0 +1,90 @@
+.custom-navbar {
+    box-shadow: 0 4px 2px -2px gray;
+  }
+  
+  .custom-navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .custom-navbar .nav-link {
+    margin-top: 0.2rem;
+    margin-right: 1rem;
+    color: #ffffff !important;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .dropdown-item  {
+    display: block;
+    width: 100%;
+    padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+    clear: both;
+    font-weight: 400;
+    /* color: var(--bs-dropdown-link-color); */
+    text-align:  justify;
+   
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: none;
+    border: 0;
+    border-radius: var(--bs-dropdown-item-border-radius, 0);
+  }
+  
+  
+  
+  /* .NavDropdown .Item {
+    width: 1px;
+     
+  } */
+  /* .custom-dropdown-item {
+    /* width: 5px; 
+    height: 25px;
+  } */
+  
+  .dropdown-menu[data-bs-popper] {
+    top: 100%;
+    left: -8px;
+    margin-top: var(--bs-dropdown-spacer);
+  }
+  
+  .custom-navbar .nav-link:hover {
+    color: #cccccc !important;
+  }
+  
+  .custom-navbar .navbar-toggler {
+    border: none;
+  }
+  
+  .custom-navbar .navbar-toggler-icon {
+    color: #ffffff;
+  }
+  
+  /* Custom styles for the search bar */
+  .searchBar .form-control {
+    padding: 0.25rem 0.5rem;
+    /* Adjust padding to reduce height */
+    line-height: 1.25;
+    /* Adjust line-height if needed */
+    height: 2rem;
+    /* Ensure height is adjusted automatically */
+    font-size: 0.875rem;
+    /* Adjust font size */
+    width: 200px;
+    margin-right: 5px;
+    margin-top: 0.3rem;
+    /* Adjust width as needed */
+  }
+  
+  .searchBar .btn {
+    padding: 0.25rem 0.5rem;
+    /* Adjust padding to match the input field */
+    line-height: 1.25;
+    /* Adjust line-height if needed */
+    height: 2rem;
+    /* Ensure height is adjusted automatically */
+    font-size: 0.875rem;
+    margin-top: 0.3rem;
+    /* Adjust font size */
+  }
+  
+  

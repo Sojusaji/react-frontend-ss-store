@@ -1,0 +1,24 @@
+/* Card styles */
+.card {
+    flex: 0 0 auto;
+    /* Prevent cards from growing/shrinking */
+    margin-right: 15px;
+    transition: transform 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+    /* Smooth transition for hover effect */
+}
+
+/* Hover effect */
+.card:hover {
+    transform: scale(1.05);
+    /* Scale up the card slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjusting the image inside the card */
+.card-image {
+    width: 10rem;
+    height: 12rem;
+
+
+}

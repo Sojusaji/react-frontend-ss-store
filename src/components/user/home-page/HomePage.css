@@ -1,0 +1,32 @@
+.searchbarOnBody {
+    text-align: center;
+  }
+  
+  .center-image {
+    display: block;
+    margin: auto;
+  }
+  
+  /* Container for horizontal scrolling */
+  .scrollable-card {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Enables momentum scrolling on iOS */
+    scrollbar-width: none;
+    /* For Firefox */
+  }
+  
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollable-card::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollable-card .product-card {
+    flex: 0 0 auto;
+    /* Prevent shrinking and ensure the width fits the content */
+    margin-right: 16px;
+    /* Space between cards, adjust as needed */
+  }
+  
