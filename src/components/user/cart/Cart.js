@@ -1,17 +1,19 @@
-import { React, useEffect, useState } from 'react';
-import TableData from './table-data/TableData';
+import { React, useEffect, useState ,useContext} from 'react';
+import TableData from './table-data/TableFormat';
 import InfoCard from './card-data/CardData';
 import { getCart } from '../../../services/Api'
+import { FetchContext } from "../context/FetchContex";
 // import {getCart } from '../../../services/Api'
 import { Container, Row, Col } from 'react-bootstrap';
 import './Cart.css'
 
 function Cart() {
-    const [user, setUser] = useState([])
+    const {user,setUser}=useContext(FetchContext)
+    
     const [products, setProducts] = useState([])
-    const[total,setTotal]=useState([])
-  
-
+    const[total,setTotal]=useState(null)
+    const[isLoading,setIsLoading]=useState(true)
+   
     useEffect(() => {
         const fetchCartDatas = async () => {
             const response = await getCart()
@@ -19,7 +21,7 @@ function Cart() {
             setUser(response.data.user)
             setProducts(response.data.products)
             setTotal(response.data.totalValue)
-
+            setIsLoading(false)
         }
         fetchCartDatas()
 
@@ -31,21 +33,23 @@ function Cart() {
             document.body.style.background = '';
         };
     }, [])
+  
+    if(isLoading){
+        return <p className='titleOne'>Loading cart data...</p>
+    }
 
     return (
-        user !== null && products !==0
+        user!== null && products?.length
             ? (<Container className=" my-1">
                 <Row className=" d-none d-lg-block ">
                     <Col>
-                        <TableData products={products} total={total} setProducts={setProducts}/>
+                        <TableData products={products} total={total} setProducts={setProducts} setTotal={setTotal}/>
                     </Col>
                 </Row>
                 <Row className="d-block d-lg-none my-4">
                     <Col>
                         <InfoCard
-                            title="Card Title"
-                            text="Some quick example text to build on the card title and make up the bulk of the card's content."
-                            buttonText="Go somewhere"
+                           products={products} total={total} setProducts={setProducts} setTotal={setTotal}
                         />
                     </Col>
                 </Row>

@@ -2,7 +2,7 @@ import { React, useState, useEffect, useContext } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Banner from "./banner/Banner";
 import { FetchContext } from "../context/FetchContex";
-import axios from 'axios';
+// import axios from 'axios';
 import { getAllProducts } from "../../../services/Api";
 
 import './HomePage.css'
@@ -11,7 +11,7 @@ import ProductCard from './scroll-view/ProductCard';
 
 
 function HomePage() {
-  const { banner, setBanner, rowOne, setRowOne, rowTwo, setRowTwo, setUserData } = useContext(FetchContext)
+  const { banner, setBanner, rowOne, setRowOne, rowTwo, setRowTwo,setUser} = useContext(FetchContext)
 
 
 
@@ -21,7 +21,7 @@ function HomePage() {
       setBanner(products.data.banner)
       setRowOne(products.data.rowOne)
       setRowTwo(products.data.rowTwo)
-      setUserData(products.data.user)
+      setUser(products.data.user)
     })
   },
     []);

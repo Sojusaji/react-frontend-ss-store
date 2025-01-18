@@ -1,0 +1,17 @@
+.total-amount{
+      /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); */
+    font-family: 'Times New Roman', Times, serif;
+   
+}
+.amount{
+    font-size: x-large;
+    color: black;
+    text-align: right;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.pay-button{
+    text-align: right;
+    
+}

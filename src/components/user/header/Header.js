@@ -9,7 +9,7 @@ import './Header.css';
 
 const NavBar = () => {
   const navigate = useNavigate()
-  const { userData,setUserData,cartCount } = useContext(FetchContext)
+  const { cartCount, user, setUser } = useContext(FetchContext)
   const [showSearchBar, setShowSearchBar] = useState(true);
 
 
@@ -19,7 +19,7 @@ const NavBar = () => {
       const response = await logout()
       console.log('response:', response)
       if (response.data.status) {
-         setUserData(null)
+        setUser(null)
       }
     } catch (error) {
       alert(error)
@@ -51,10 +51,16 @@ const NavBar = () => {
         <Navbar.Collapse id="navbarSupportedContent">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Products</Nav.Link>
-            <Nav.Link as={Link} to="/cart">
-              Cart <span className="badge badge-success" id="cart-count">{cartCount}</span>
-            </Nav.Link>
-            {(userData != null) && <Nav.Link as={Link} to="/orders">Orders</Nav.Link>}
+            {
+              user ? (<Nav.Link as={Link} to="/cart">
+                Cart <span className="badge badge-success" id="cart-count">{cartCount}</span>
+              </Nav.Link>)
+                : (<Nav.Link as={Link} to="/Login">
+                  Cart <span className="badge badge-success" id="cart-count">{cartCount}</span>
+                </Nav.Link>)
+            }
+           
+            {(user != null) && <Nav.Link as={Link} to="/orders">Orders</Nav.Link>}
             <Nav.Item className="searchBar" style={{ display: showSearchBar ? 'flex' : 'none' }}>
               <Form className="d-flex">
                 <FormControl type="text" placeholder="Search..." className="mr-sm-2" />
@@ -63,9 +69,9 @@ const NavBar = () => {
             </Nav.Item>
             <span className="nav-indicator"></span>
           </Nav>
-          <NavDropdown title={(userData != null) ? userData.name : "Account"} id="dropdownMenuButton" className="mr-5">
+          <NavDropdown title={(user != null) ? user.name : "Account"} id="dropdownMenuButton" className="mr-5">
             {
-              (userData != null)
+              (user != null)
                 ? (<NavDropdown.Item onClick={handleLogout} className='custom-dropdown-item'>Logout</NavDropdown.Item>)
                 : (<NavDropdown.Item as={Link} to="/Login" className='custom-dropdown-item'>Login</NavDropdown.Item>)
 
